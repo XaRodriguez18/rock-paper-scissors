@@ -43,6 +43,9 @@ function playGame() {
     var humanScore = 0;
     var computerScore = 0;
 
+    let alertMessage = "";
+    var finalMessage = "";
+
     let roundsPlayed = 0;
 
     while (roundsPlayed < 5) {
@@ -54,7 +57,7 @@ function playGame() {
         roundsPlayed += 1
     }
 
-    let finalMessage = getFinalMessage(humanScore, computerScore);
+    var finalMessage = getFinalMessage(humanScore, computerScore);
     alert(finalMessage);
 
     
@@ -62,7 +65,6 @@ function playGame() {
     
 
     function playRound(humanChoice, compChoice) {
-        let alertMessage = "";
         let humanWon = undefined;
        
         if (humanChoice === compChoice) {
@@ -84,24 +86,24 @@ function playGame() {
         
        
         if (humanWon === undefined) {
-           alertMessage = 'Draw \n\nScore:\nYou: ${humanScore} | Computer ${computerscore}';
+           alertMessage = `Draw \n\nScore:\nYou: ${humanScore} | Computer ${computerScore}`;
         } else if (humanWon === true) {
            humanScore += 1;
-           alertMessage = "You win! ${humanChoice} beats ${compChoice}. \n\nScore:\nYou: ${humanScore} | Computer ${computerscore}";
+           alertMessage = `You win! ${humanChoice} beats ${compChoice}. \n\nScore:\nYou: ${humanScore} | Computer ${computerScore}`;
         } else if (humanWon === false) {
            computerScore += 1;
-           alertMessage = "You lose! ${compChoice} beats ${humanChoice} \n\nScore:\nYou: ${humanScore} | Computer ${computerscore}";
+           alertMessage = `You lose! ${compChoice} beats ${humanChoice} \n\nScore:\nYou: ${humanScore} | Computer ${computerScore}`;
         }
        
     }
 
     function getFinalMessage() {
         if (humanScore > computerScore) {
-            finalMessage = "Victory. \n\nScore:\nYou: ${humanScore} | Computer ${computerscore}";
+            finalMessage = `Victory. \n\nScore:\nYou: ${humanScore} | Computer ${computerScore}`;
         } else if (humanScore < computerScore) {
-            finalMessage = "Defeat. \n\nScore:\nYou: ${humanScore} | Computer ${computerscore}";
+            finalMessage = `Defeat. \n\nScore:\nYou: ${humanScore} | Computer ${computerScore}`;
         } else if (humanScore === computerScore) {
-            finalMessage = "Draw. \n\nScore:\nYou: ${humanScore} | Computer ${computerscore}";
+            finalMessage = `Draw. \n\nScore:\nYou: ${humanScore} | Computer ${computerScore}`;
         }
         return finalMessage;
     }
