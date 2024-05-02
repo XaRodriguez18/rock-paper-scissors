@@ -1,24 +1,18 @@
 /* Step 1 */
 console.log("Hello World");
-getComputerChoice();
-getHumanChoice();
 
 /* Step 2 */
 function getComputerChoice() {
     const compChoiceInt = Math.floor(Math.random() * 3);
-    console.log(compChoiceInt);
     
     if (compChoiceInt == 0) {
         var compChoice = "rock"
-        console.log(compChoice);
         return compChoice;
     } else if (compChoiceInt == 1) {
         var compChoice = "paper"
-        console.log(compChoice);
         return compChoice;
     } else if (compChoiceInt == 2) {
         var compChoice = "scissors"
-        console.log(compChoice);
         return compChoice;
     } else {
         console.log("Error");
@@ -29,7 +23,6 @@ function getComputerChoice() {
 function getHumanChoice() {
     let humanChoice = prompt("Rock, Paper or Scissors?").toLowerCase();
     if (humanChoice.toLowerCase() === "rock" || humanChoice.toLowerCase() === "paper" || humanChoice.toLowerCase() === "scissors") {
-        console.log(humanChoice);
         return humanChoice;
     } else {
         alert("Please choose a correct option.")
@@ -62,5 +55,10 @@ function playRound(humanChoice, compChoice) {
  }
 
  return humanWon;
- 
+
 }
+
+const humanSelection =  getHumanChoice();
+const computerSelection = getComputerChoice();
+
+playRound(humanSelection, computerSelection);
