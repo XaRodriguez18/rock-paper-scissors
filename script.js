@@ -14,4 +14,5 @@ function getComputerChoice() {
     } else {
         console.log("Error");
     }
+    
 }
