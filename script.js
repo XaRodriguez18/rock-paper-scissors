@@ -37,14 +37,29 @@ function getHumanChoice() {
 
 
 
-playRound(humanSelection, computerSelection);
+
 
 function playGame() {
     var humanScore = 0;
     var computerScore = 0;
 
-    const humanSelection =  getHumanChoice();
-    const computerSelection = getComputerChoice();
+    let roundsPlayed = 0;
+
+    while (roundsPlayed < 5) {
+        const humanSelection =  getHumanChoice();
+        const computerSelection = getComputerChoice();
+
+        playRound(humanSelection, computerSelection);
+        alert(alertMessage);
+        roundsPlayed += 1
+    }
+
+    let finalMessage = getFinalMessage(humanScore, computerScore);
+    alert(finalMessage);
+
+    
+
+    
 
     function playRound(humanChoice, compChoice) {
         let alertMessage = "";
@@ -78,5 +93,25 @@ function playGame() {
            alertMessage = "You lose! ${compChoice} beats ${humanChoice} \n\nScore:\nYou: ${humanScore} | Computer ${computerscore}";
         }
        
+    }
+
+    function getFinalMessage() {
+        if (humanScore > computerScore) {
+            finalMessage = "Victory. \n\nScore:\nYou: ${humanScore} | Computer ${computerscore}";
+        } else if (humanScore < computerScore) {
+            finalMessage = "Defeat. \n\nScore:\nYou: ${humanScore} | Computer ${computerscore}";
+        } else if (humanScore === computerScore) {
+            finalMessage = "Draw. \n\nScore:\nYou: ${humanScore} | Computer ${computerscore}";
+        }
+        return finalMessage;
+    }
+}
+
+while (true) {
+    playGame();
+
+    let restart = confirm('Press "OK" to restart.');
+    if (restart === false) {
+        break;
     }
 }
